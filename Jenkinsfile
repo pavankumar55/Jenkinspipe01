@@ -5,7 +5,7 @@ pipeline {
     agent any
     tools {
         jdk "Java-1.8"
-        Gradle "Gradle 5.2"
+        gradle "Gradle 5.2"
     }
     stages {
         stage ('Clone') {
