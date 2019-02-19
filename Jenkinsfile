@@ -1,13 +1,30 @@
+def server = Artifactory.server 'Artifactory'
+def rtGradle = Artifactory.newGradleBuild()
+
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                echo "Hello World!"
+stages{
+    stage('Pre-Build'){
+        steps{
+             script{
+                rtGradle.resolver server: server, repo: 'gradle-dev-local'
+                rtGradle.deployer server: server, repo: 'gradle-release-local'
+                rtGradle.useWrapper = true
             }
-        }
+        }   
     }
 }
+}
+
+//pipeline {
+  //  agent any
+    //stages {
+      //  stage('build') {
+        //    steps {
+          //      echo "Hello World!"
+            //}
+        //}
+    //}
+//}
 
 //stage ‘Artifactory configuration’
 
