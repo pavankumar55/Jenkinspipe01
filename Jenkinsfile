@@ -3,8 +3,12 @@ def rtGradle = Artifactory.newGradleBuild()
 
 pipeline {
     agent any
-    
-    stages{
+    stages {
+        stage ('Clone') {
+            steps {
+                git branch: 'master', url: "https://github.com/jitpack/gradle-simple.git"
+            }
+        }
         stage('Pre-Build'){
             steps{
                 script{
@@ -16,6 +20,22 @@ pipeline {
         }
     }
 }
+
+//pipeline {
+  //  agent any
+    
+    //stages{
+      //  stage('Pre-Build'){
+        //    steps{
+          //      script{
+            //        rtGradle.resolver server: server, repo: 'gradle-dev-local'
+              //      rtGradle.deployer server: server, repo: 'gradle-release-local'
+                //    rtGradle.useWrapper = true
+                //}
+            //}
+        //}
+    //}
+//}
 
 
 //pipeline {
