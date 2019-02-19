@@ -21,7 +21,20 @@ pipeline {
         stage('Execute Gradle'){
             steps{
                 script{
-                    rtGradle.run rootDir:”.”,buildFile:'build.gradle',tasks:”clean artifactoryPublish”
+                    //rtGradle.run rootDir:”.”,buildFile:’build.gradle’,tasks:”clean artifactoryPublish”
+                    rtGradleRun (
+                            // Set to true if the Artifactory Plugin is already defined in build script.
+                            usesPlugin: true,
+                            // Tool name from Jenkins configuration.
+                            tool: GRADLE_TOOL,
+                            // Set to true if you'd like to build to use the Gradle Wrapper.
+                            useWrapper: true
+                            rootDir: "gradle-examples/gradle-example/",
+                            buildFile: 'build.gradle',
+                            tasks: 'clean artifactoryPublish',
+                            resolverId: "resolver-unique-id",
+                            deployerId: "deployer-unique-id",
+                    )
                 }
             }
         }
