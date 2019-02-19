@@ -3,6 +3,10 @@ def rtGradle = Artifactory.newGradleBuild()
 def buildInfo
 pipeline {
     agent any
+    tools {
+        jdk "Java-1.8"
+        Gradle "Gradle 5.2"
+    }
     stages {
         stage ('Clone') {
             steps {
@@ -26,7 +30,7 @@ pipeline {
                             // Set to true if the Artifactory Plugin is already defined in build script.
                             usesPlugin: true,
                             // Tool name from Jenkins configuration.
-                            tool: "Gradle 5.2",
+                            tool: Gradle,
                             // Set to true if you'd like to build to use the Gradle Wrapper.
                             useWrapper: true
                             rootDir: "gradle-examples/gradle-example/",
