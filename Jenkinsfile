@@ -1,6 +1,6 @@
 def server = Artifactory.server 'Artifactory'
 def rtGradle = Artifactory.newGradleBuild()
-
+def buildInfo
 pipeline {
     agent any
     stages {
