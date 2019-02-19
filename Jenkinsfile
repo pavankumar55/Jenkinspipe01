@@ -1,4 +1,4 @@
-def server = Artifactory.server 'Artifactory01'
+def server = Artifactory.server 'Artifactory'
 def rtGradle = Artifactory.newGradleBuild()
 pipeline {
     agent any
