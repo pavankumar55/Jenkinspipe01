@@ -1,13 +1,8 @@
-def server = Artifactory.server 'Artifactory'
+def server = Artifactory.server 'Artifactory01'
 def rtGradle = Artifactory.newGradleBuild()
 pipeline {
     agent any
-    stages {
-        stage ('Clone') {
-            steps {
-                git branch: 'master', url: "https://github.com/jitpack/gradle-simple.git"
-            }
-        }
+    
     stages{
         stage('Pre-Build'){
             steps{
