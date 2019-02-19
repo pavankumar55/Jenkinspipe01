@@ -2,7 +2,7 @@ stage ‘Artifactory configuration’
 
  //Create an Artifactory server instance 
 
-  def server = Artifactory.server(‘Artifactory Version 4.15.0’)
+  def server = Artifactory.server("Artifactory")
 
 //Create and set an Artifactory Gradle Build instance:
 
