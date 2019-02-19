@@ -28,7 +28,7 @@ pipeline {
         stage(' Publish build info to Artifactory'){
             steps{
                 script{
-                    server.publishBuildinfo buildinfo
+                    server.publishBuildInfo buildInfo
                 }
             }
         }
