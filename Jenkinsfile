@@ -21,7 +21,7 @@ pipeline {
         stage('Execute Gradle'){
             steps{
                 script{
-                    rtGradle.run rootDir:”.”,buildFile:’build.gradle’,tasks:”clean artifactoryPublish”
+                    rtGradle.run rootDir:”.”,buildFile:'build.gradle',tasks:”clean artifactoryPublish”
                 }
             }
         }
