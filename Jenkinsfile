@@ -1,5 +1,8 @@
 def server = Artifactory.server 'Artifactory'
 def rtGradle = Artifactory.newGradleBuild()
+def buildinfo = rtGradle.run rootDir:”.”,buildFile:’build.gradle’,tasks:”clean artifactoryPublish”
+server.publishBuildinfo buildinfo
+
 pipeline {
     agent any
     
