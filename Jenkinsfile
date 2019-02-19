@@ -26,7 +26,7 @@ pipeline {
                             // Set to true if the Artifactory Plugin is already defined in build script.
                             usesPlugin: true,
                             // Tool name from Jenkins configuration.
-                            tool: GRADLE_TOOL,
+                            tool: Gradle 5.2,
                             // Set to true if you'd like to build to use the Gradle Wrapper.
                             useWrapper: true
                             rootDir: "gradle-examples/gradle-example/",
